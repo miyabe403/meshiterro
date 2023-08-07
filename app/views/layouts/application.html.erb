@@ -12,11 +12,13 @@
 
   <body>
     <header>
-      <% if user_signed_in? %>
+      <!-- % if user_signed_in? % は、devise 側で用意しているヘルパーメソッドです。 -->
+      <% if user_signed_in? %> <!-- ログイン済みならばtrue -->
         <li>
+          <!-- link_to ヘルパーの method オプションを設定して、ログアウトリンクを作成します。 -->
           <%= link_to "ログアウト", destroy_user_seession_path, method: :delete %>
         </li>
-      <% else %>
+      <% else %>　<!-- ログインしていなければfalse-->
         <li>
           <%= link_to "新規登録", new_user_registration_path %>
         </li>
