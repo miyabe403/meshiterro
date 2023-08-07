@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   
   # after_sign_out_path_forはDeviseが用意しているメソッドでサインアウト後にどこに遷移するかを設定するメソッドです。
   def after_sign_out_path_for(resource)
-    about_path
+    about_path 
   end 
   
   # protectedは呼び出された他のコントローラからも参照することができます。
