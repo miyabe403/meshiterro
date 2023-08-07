@@ -6,6 +6,7 @@ class User < ApplicationRecord
   #（パスワードの正確性を検証）（ユーザ登録や編集、削除）
   #（パスワードをリセット）（ログイン情報を保存）（email のフォーマットなどのバリデーション）
 
+  # User モデルに対して、PostImage モデルが 1:N になるよう関連付けます。
   has_many :post_images, dependent: :destroy
 
 end
