@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
-  get 'users/show'
-  get 'users/edit'
-  root to: 'homes#top'
   devise_for :users  # devise_for :users は、devise を使用する際に URL として users を含むことを示しています。
-  
-  resources :post_images, only: [:new, :create, :index, :show, :destroy] # resources メソッドは、ルーティングを一括して自動生成してくれる機能 onlyオプションを使用することで、生成するルーティングを限定することができます。
-   
+  root to: 'homes#top'
   get '/homes/about' => 'homes#about', as: 'about'  # 名前付きルート as:オプションを追加「'homes#about'の設定を、aboutとして利用できる」
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :post_images, only: [:new, :create, :index, :show, :destroy] # resources メソッドは、ルーティングを一括して自動生成してくれる機能 onlyオプションを使用することで、生成するルーティングを限定することができます。
+  resources :users, only: [:show, :edit] # resourcesとonlyを使って、show, editのアクションのみ追加
 end
  
