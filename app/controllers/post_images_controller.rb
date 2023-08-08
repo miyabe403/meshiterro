@@ -17,6 +17,7 @@ class PostImagesController < ApplicationController
   end
 
   def show
+    
   end
   
   # 投稿データのストロングパラメータ
