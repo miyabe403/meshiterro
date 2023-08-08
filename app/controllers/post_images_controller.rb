@@ -12,7 +12,8 @@ class PostImagesController < ApplicationController
     redirect_to post_images_path
   end
 
-  def index
+  def index 
+    @post_images = PostImage.all
   end
 
   def show
