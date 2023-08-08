@@ -18,9 +18,9 @@ class PostImagesController < ApplicationController
   end
   
   # 投稿データのストロングパラメータ
-  private
+  private 
   
   def post_image_params
-    params_require(:post_image).permit
+    params_require(:post_image).permit(:shop_name, :image, :caption)
   end
 end
