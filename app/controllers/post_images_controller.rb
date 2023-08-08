@@ -1,6 +1,6 @@
 class PostImagesController < ApplicationController
   def new
-    @post_image = PostImage.new
+    @post_image = PostImage.new 
   end
   
   # 投稿データの保存
