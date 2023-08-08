@@ -15,6 +15,9 @@
       <!-- % if user_signed_in? % は、devise 側で用意しているヘルパーメソッドです。 -->
       <% if user_signed_in? %> <!-- ログイン済みならばtrue -->
         <li>
+          <%= linl_to '投稿フォーム', new_post_image_path %>
+        </li>
+        <li>
           <!-- link_to ヘルパーの method オプションを設定して、ログアウトリンクを作成します。 -->
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         </li>
