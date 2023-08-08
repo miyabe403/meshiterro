@@ -12,7 +12,7 @@ class User < ApplicationRecord
   # profile_imageという名前でActiveStorageでプロフィール画像を保存
   has_one_attached :profile_image
   
-  # get_image メソッド =特定の処理を名前で呼び出すことができる
+  # get_image メソッド =特定の処理を名前で呼び出すことができる 
   def get_profile_image
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/sample-author1.jpg')
