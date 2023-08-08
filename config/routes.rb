@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/show'
+  get 'users/edit'
   root to: 'homes#top'
   devise_for :users  # devise_for :users は、devise を使用する際に URL として users を含むことを示しています。
   
