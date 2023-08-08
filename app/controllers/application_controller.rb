@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     post_images_path
   end
-  
+   
   # after_sign_out_path_forはDeviseが用意しているメソッドでサインアウト後にどこに遷移するかを設定するメソッドです。
   def after_sign_out_path_for(resource)
     about_path 
