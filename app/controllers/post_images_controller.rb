@@ -20,6 +20,10 @@ class PostImagesController < ApplicationController
     @post_image = PostImage.find(params[:id])
   end
   
+  def destroy
+    
+  end
+  
   # 投稿データのストロングパラメータ
   private 
   
