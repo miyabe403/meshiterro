@@ -8,6 +8,9 @@ class User < ApplicationRecord
 
   # User モデルに対して、PostImage モデルが 1:N になるよう関連付けます。
   has_many :post_images, dependent: :destroy
+  
+  # User モデルに対して、PostComment モデルが 1:N になるよう関連付けます。
+  has_many :post_comments, dependent: :destroy
 
   # profile_imageという名前でActiveStorageでプロフィール画像を保存
   has_one_attached :profile_image
