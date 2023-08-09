@@ -7,4 +7,3 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show, :edit, :update] # resourcesとonlyを使って、show, editのアクションのみ追加 
 end
- 
