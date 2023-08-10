@@ -9,11 +9,11 @@
     <%= link_to "削除", post_image_path(@post_image), method: :delete %>
   <% end %>
   <!--  投稿画像に付けられた「いいね」に、自分（ログインしているユーザ）が含まれているかをfavorited_by?メソッドで判定しています。 -->
-  <% if @post_image.favorites_by?(current_user) %>
+  <% if @post_image.favorited_by?(current_user) %>
   <p>
     <%= link_to post_image_favorites_path(@post_image), method: :delete do %>
-    ♥<%= post_image.favorites.count %> いいね
-    <% end %>
+      💖<%= @post_image.favorites.count %> いいね
+    <% end %> 
   </p> 
   <% else %>
   <p>
@@ -21,6 +21,7 @@
       ♡<%= @post_image.favorites.count %> いいね
     <% end %>
   </p>
+  <% end %>
 </div>
 
 <div>
