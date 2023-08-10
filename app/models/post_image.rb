@@ -10,6 +10,8 @@ class PostImage < ApplicationRecord
   # PostImage モデルに対して、PostComment モデルが 1:N になるよう関連付けます。
   has_many :post_comments, dependent: :destroy
   
+  has_many :favorites, dependent: :destroy
+  
   # get_image メソッド =特定の処理を名前で呼び出すことができる
   # unless = 画像が設定されない場合はimagesに格納されているno_image.jpgという画像をデフォルト画像としてActiveStorageに格納する
   def get_image
@@ -20,4 +22,8 @@ class PostImage < ApplicationRecord
     image
   end
   
+  # favorited_by?メソッドを作成 引数で渡されたユーザidがFavoritesテーブル内に存在（exists?）するかどうかを調べます。
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
+  end
 end
