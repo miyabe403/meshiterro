@@ -1,12 +1,12 @@
-<% @post_images.each do |post_image| %> <!-- @post_images変数内から1つずつ取り出して、post_image変数へ格納します。 -->
-  <div>
-    <%= link_to post_image_path(post_image.id) do %>
-      <%= image_tag post_image.get_image %> <!-- image_tagを使いpost_imageにActiveStorageで設定したimageを表示しています。 -->
-    <% end %>
-    <p>投稿ユーザー画像: <%= image_tag post_image.user.get_profile_image(100,100) %></p> <!-- 投稿画像に紐づいたユーザーのプロフィール画像を表示-->
-    <p>ショップ名: <%= post_image.shop_name %></p> <!-- post_image変数のshop_nameカラムを表示します。 -->
-    <p>説明: <%= post_image.caption%></p> <!-- post_image変数のcaptionカラムを表示します。 -->
-    <p>ユーザーネーム: <%= post_image.user.name %></p> <!-- post_image変数のuser_idに関連付けられているuserモデルのnameカラムを表示します。 -->
-    <p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p> <!-- 投稿画像の詳細画面で、コメントを投稿できるように -->
-  </div>
-<% end %>
+<!--% @post_images.each do |post_image| %> <!-- @post_images変数内から1つずつ取り出して、post_image変数へ格納します。 -->-->
+<!--  <div>-->
+<!--    %= link_to post_image_path(post_image.id) do %>-->
+<!--      %= image_tag post_image.get_image %> <!-- image_tagを使いpost_imageにActiveStorageで設定したimageを表示しています。 -->-->
+<!--    % end %>-->
+<!--    <p>投稿ユーザー画像: %= image_tag post_image.user.get_profile_image(100,100) %></p> <!-- 投稿画像に紐づいたユーザーのプロフィール画像を表示-->-->
+<!--    <p>ショップ名: %= post_image.shop_name %></p> <!-- post_image変数のshop_nameカラムを表示します。 -->-->
+<!--    <p>説明: %= post_image.caption%></p> <!-- post_image変数のcaptionカラムを表示します。 -->-->
+<!--    <p>ユーザーネーム: %= post_image.user.name %></p> <!-- post_image変数のuser_idに関連付けられているuserモデルのnameカラムを表示します。 -->-->
+<!--    <p>%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p> <!-- 投稿画像の詳細画面で、コメントを投稿できるように -->-->
+<!--  </div>-->
+<!--% end %>-->
