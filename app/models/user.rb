@@ -15,6 +15,8 @@ class User < ApplicationRecord
   # profile_imageという名前でActiveStorageでプロフィール画像を保存
   has_one_attached :profile_image
   
+  has_many :favorites, dependent: :destroy
+  
   # get_image メソッド =特定の処理を名前で呼び出すことができる 
   def get_profile_image(width, height)
     unless profile_image.attached?
