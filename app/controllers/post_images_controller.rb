@@ -8,8 +8,11 @@ class PostImagesController < ApplicationController
     @post_image = PostImage.new(post_image_params) # 投稿するデータを PostImage モデルに紐づくデータとして保存する準備している
     @post_image.user_id = current_user.id  # 空のモデルでは、"[モデル名].[カラム名]"という形で、保存する。 current_user は、ログイン中のユーザー情報を取得することができる
 
-    @post_image.save
-    redirect_to post_images_path
+    if @post_image.save
+      redirect_to post_images_path
+    else
+      render :new
+    end
   end
 
   def index
