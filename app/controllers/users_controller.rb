@@ -5,21 +5,17 @@ class UsersController < ApplicationController
   end
  
   def edit 
-    user = User.find(params[:id])  # 1. URLに含まれるユーザーidをparams[:id]で取得
-    unless user.id == current_user.id  # 2. ログインしているユーザーのidをcurrent_user.idで取得
-      redirect_to post_images_path  # 3. 1と2のidが一致していなかった場合、 投稿一覧にリダイレクトする
+    is_matching_login_user  # メソッドで処理をまとめる
       
-    # @user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
   
   def update
-    user = User.find(params[:id])  # 1. URLに含まれるユーザーidをparams[:id]で取得
-    unless user.id == current_user.id  # 2. ログインしているユーザーのidをcurrent_user.idで取得
-      redirect_to post_images_path  # 3. 1と2のidが一致していなかった場合、 投稿一覧にリダイレクトする
-      
-    # @user = User.find(params[:id])
-    # @user.update(user_params)
-    # redirect_to user_path(@user.id)
+    is_matching_login_user  # メソッドで処理をまとめる
+    
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to user_path(@user.id)
   end
   
    
@@ -27,6 +23,12 @@ class UsersController < ApplicationController
   
   def user_params
     params.require(:user).permit(:name, :profile_image)
+  end
+  
+  def is_matching_login_user
+    user = User.find(params[:id])  # 1. URLに含まれるユーザーidをparams[:id]で取得
+    unless user.id == current_user.id  # 2. ログインしているユーザーのidをcurrent_user.idで取得
+      redirect_to post_images_path  # 3. 1と2のidが一致していなかった場合、 投稿一覧にリダイレクトする
   end
 end
 
