@@ -1,5 +1,8 @@
 <div class="container">
   <div class="row no-gutters">
+    <!-- 画面幅が切り替わったときに、入力フォームの幅などを調節するためにcolを二つ指定 -->
+    <!-- col-sm-10 画面幅が576px以上のときに12分割したグリッドの10分割分の幅をとる-->
+    <!-- col-md-5 画面幅が768px以上のときに12分割したグリッドの5分割分の幅をとる-->
     <div class="col-mb-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
       <h5 class="test-dark bg-light p-4 mb-0">画像投稿フォーム</h5> 
       <div class="form-body p-4">
@@ -14,14 +17,15 @@
           </ul>
         <% end %>
         <%= form_with model: @post_image do |f| %>
-          <%= f.file_field :image, accept: "image/*", class="w-100" %>
+          <%= f.file_field :image, accept: "image/*", class:"w-100" %>
           <div class="input-group mb-3 mt-4">
             <div class="input-group-prepend">
               <span class="input-group-text" aria-hidden="true"><i class="fas fa-building"></i></span>
             </div>
+            <!-- 基本的には、フォーム部品にはform-controlを使用し、それを囲う部分にはform-groupを使用します。 -->
             <%= f.text_field :shop_name, class:"form-control", placeholder:"ショップ名" %>
           </div>
-          <%= f.text_area :caption, class="form-control", rows:"3", placeholder:"コメントここに" %>
+          <%= f.text_area :caption, class:"form-control", rows:"3", placeholder:"コメントここに" %>
           <hr>
           <%= f.submit '投稿', class:"btn btn-lg btn-block btn-info mt-4" %>
         <% end %> 
