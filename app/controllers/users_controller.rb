@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     @post_images = @user.post_images.page(params[:page]) # 特定のユーザ（@user）に関連付けられた投稿全て（.post_images）を取得し @post_imagesに渡す処理 
   end
  
-  def edit
+  def edit 
     @user = User.find(params[:id])
   end
   
